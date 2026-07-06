@@ -218,6 +218,22 @@ const projectData = {
     imageExt: 'png',
     imageCount: 3,
     videoPath: 'assets/video/wutasi.mp4'
+  },
+
+  aigcmv: {
+    title: 'AIGC 创作 MV',
+    subtitle: 'AIGC 创意音乐短片',
+    category: '动画设计',
+    type: 'AIGC 视频创作',
+    role: 'AI 创作 & 剪辑',
+    tools: 'ChatGPT / Midjourney / Runway / After Effects',
+    team: '个人项目',
+    chapters: [],
+    imageDir: 'assets/detail/aigcmv/',
+    imageExt: 'jpg',
+    imageCount: 1,
+    videoPath: 'assets/video/aigc_mv.mp4',
+    directVideo: true
   }
 };
 
@@ -425,25 +441,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const project = projectData[projectKey];
     if (!project) return;
 
-    // Hero 横幅
-    const heroImg = document.getElementById('storyHeroImg');
-    heroImg.src = `${project.imageDir}01.${project.imageExt}`;
-    heroImg.alt = project.title;
-    document.getElementById('storyHeroCat').textContent = project.category;
-    document.getElementById('storyHeroTitle').textContent = project.title;
-    document.getElementById('storyHeroSubtitle').textContent = project.subtitle;
+    const isDirectVideo = project.directVideo === true;
 
-    // 信息栏
-    document.getElementById('modalType').textContent = project.type;
-    document.getElementById('modalRole').textContent = project.role;
-    document.getElementById('modalTools').textContent = project.tools;
-    document.getElementById('modalTeam').textContent = project.team;
+    // Hero 横幅 — directVideo 模式隐藏
+    const heroImg = document.getElementById('storyHeroImg');
+    const heroSection = document.getElementById('storyHero');
+    if (isDirectVideo) {
+      heroSection.style.display = 'none';
+    } else {
+      heroSection.style.display = '';
+      heroImg.src = `${project.imageDir}01.${project.imageExt}`;
+      heroImg.alt = project.title;
+      document.getElementById('storyHeroCat').textContent = project.category;
+      document.getElementById('storyHeroTitle').textContent = project.title;
+      document.getElementById('storyHeroSubtitle').textContent = project.subtitle;
+    }
+
+    // 信息栏 — directVideo 模式简化
+    const infoBar = document.querySelector('.project-info-bar');
+    if (isDirectVideo) {
+      if (infoBar) infoBar.style.display = 'none';
+    } else {
+      if (infoBar) infoBar.style.display = '';
+      document.getElementById('modalType').textContent = project.type;
+      document.getElementById('modalRole').textContent = project.role;
+      document.getElementById('modalTools').textContent = project.tools;
+      document.getElementById('modalTeam').textContent = project.team;
+    }
 
     // 渲染章节
     const chaptersEl = document.getElementById('storyChapters');
     chaptersEl.innerHTML = '';
 
-    if (project.chapters) {
+    if (project.chapters && !isDirectVideo) {
       project.chapters.forEach((chapter, cIdx) => {
         const chapterEl = document.createElement('div');
         chapterEl.className = 'story-chapter';
@@ -483,26 +513,39 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // 视频章节（如有）
+    // 视频章节
     if (project.videoPath) {
       const videoChapter = document.createElement('div');
       videoChapter.className = 'story-chapter';
-      videoChapter.innerHTML = `
-        <div class="chapter-header">
-          <span class="chapter-num">▶</span>
-          <div>
-            <span class="chapter-subtitle">MOTION</span>
-            <h3 class="chapter-title">动态展示</h3>
+      if (isDirectVideo) {
+        // 直接视频模式：全屏视频，无章节头部
+        videoChapter.innerHTML = `
+          <div class="chapter-body">
+            <div class="chapter-video" style="margin-top: 40px;">
+              <video controls autoplay preload="auto" poster="${project.imageDir}01.${project.imageExt}" style="width:100%; max-height:75vh; border-radius:12px;">
+                <source src="${project.videoPath}" type="video/mp4">
+              </video>
+            </div>
           </div>
-        </div>
-        <div class="chapter-body">
-          <div class="chapter-video">
-            <video controls preload="none" poster="${project.imageDir}01.${project.imageExt}">
-              <source src="${project.videoPath}" type="video/mp4">
-            </video>
+        `;
+      } else {
+        videoChapter.innerHTML = `
+          <div class="chapter-header">
+            <span class="chapter-num">▶</span>
+            <div>
+              <span class="chapter-subtitle">MOTION</span>
+              <h3 class="chapter-title">动态展示</h3>
+            </div>
           </div>
-        </div>
-      `;
+          <div class="chapter-body">
+            <div class="chapter-video">
+              <video controls preload="none" poster="${project.imageDir}01.${project.imageExt}">
+                <source src="${project.videoPath}" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        `;
+      }
       chaptersEl.appendChild(videoChapter);
     }
 
@@ -526,8 +569,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModal = () => {
     modal.classList.remove('open');
     document.body.style.overflow = '';
-    // 停止所有视频
     modal.querySelectorAll('video').forEach(v => v.pause());
+    // 恢复 hero 和信息栏（directVideo 模式关闭后需重置）
+    const heroSection = document.getElementById('storyHero');
+    const infoBar = document.querySelector('.project-info-bar');
+    if (heroSection) heroSection.style.display = '';
+    if (infoBar) infoBar.style.display = '';
   };
 
   // 事件绑定
