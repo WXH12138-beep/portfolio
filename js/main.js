@@ -333,22 +333,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   statNumbers.forEach(el => statsObserver.observe(el));
 
-  // ---- 技能条动画 ----
-  const skillBars = document.querySelectorAll('.skill-bar-fill[data-width]');
-
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const bar = entry.target;
-        const width = bar.getAttribute('data-width');
-        bar.style.width = `${width}%`;
-        skillObserver.unobserve(bar);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  skillBars.forEach(bar => skillObserver.observe(bar));
-
   // ---- 作品筛选 ----
   const filterBtns = document.querySelectorAll('.filter-btn');
   const workItems = document.querySelectorAll('.work-card');
