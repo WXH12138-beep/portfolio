@@ -121,7 +121,7 @@ const projectData = {
     imageDir: 'assets/detail/quehua/',
     imageExt: 'png',
     imageCount: 32,
-    videoPath: 'D:/大三下半学期/实习作品集/作品/鹊华秋色图/鹊华归梦.mp4'
+    videoPath: 'assets/video/quehua.mp4'
   },
 
   loujian: {
@@ -189,7 +189,7 @@ const projectData = {
     imageDir: 'assets/detail/mengxiang/',
     imageExt: 'jpg',
     imageCount: 3,
-    videoPath: 'D:/大三下半学期/实习作品集/作品/蒙镶錾刻/蒙镶錾刻.mp4'
+    videoPath: ''
   },
 
   wutasi: {
@@ -217,7 +217,7 @@ const projectData = {
     imageDir: 'assets/detail/wutasi/',
     imageExt: 'png',
     imageCount: 3,
-    videoPath: 'D:/大三下半学期/实习作品集/作品/五塔寺IP动画设计/期末讲评.mp4'
+    videoPath: 'assets/video/wutasi.mp4'
   }
 };
 
