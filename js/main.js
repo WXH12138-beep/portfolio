@@ -223,10 +223,10 @@ const projectData = {
   aigcmv: {
     title: 'AIGC 创作 MV',
     subtitle: 'AIGC 创意音乐短片',
-    category: '动画设计',
-    type: 'AIGC 视频创作',
+    category: 'AIGC创作',
+    type: 'AIGC创作',
     role: 'AI 创作 & 剪辑',
-    tools: 'ChatGPT / Midjourney / Runway / After Effects',
+    tools: '可灵（视频） / ChatGPT / Lovart',
     team: '个人项目',
     chapters: [],
     imageDir: 'assets/detail/aigcmv/',
