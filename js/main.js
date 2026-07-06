@@ -189,7 +189,7 @@ const projectData = {
     imageDir: 'assets/detail/mengxiang/',
     imageExt: 'jpg',
     imageCount: 3,
-    videoPath: ''
+    videoPath: 'assets/video/mengxiang.mp4'
   },
 
   wutasi: {
