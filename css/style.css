@@ -1249,10 +1249,11 @@ img {
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .contact-left h3 {
@@ -1322,56 +1323,6 @@ img {
   border-color: var(--gold);
   color: var(--gold);
   transform: translateY(-2px);
-}
-
-/* 联系表单 */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.form-group {
-  position: relative;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 1rem 0;
-  font-size: 0.95rem;
-  font-family: var(--font-sans);
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-primary);
-  outline: none;
-  transition: border-color 0.3s ease;
-  resize: none;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-bottom-color: var(--gold);
-}
-
-.form-group label {
-  position: absolute;
-  left: 0;
-  top: 1rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  pointer-events: none;
-  transition: all 0.3s var(--ease-out-expo);
-}
-
-.form-group input:focus ~ label,
-.form-group input:not(:placeholder-shown) ~ label,
-.form-group textarea:focus ~ label,
-.form-group textarea:not(:placeholder-shown) ~ label {
-  top: -0.5rem;
-  font-size: 0.7rem;
-  color: var(--gold);
 }
 
 /* ============================================
@@ -1454,11 +1405,6 @@ img {
 
   .skills-grid {
     gap: 2rem;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
   }
 
   .works-grid {

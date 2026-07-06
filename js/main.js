@@ -543,31 +543,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeModal();
   });
 
-  // ---- 联系表单 ----
-  const contactForm = document.getElementById('contactForm');
-
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-
-    submitBtn.textContent = '发送中...';
-    submitBtn.disabled = true;
-
-    setTimeout(() => {
-      submitBtn.textContent = '已发送 ✓';
-      submitBtn.style.background = '#2d8a4e';
-
-      setTimeout(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.style.background = '';
-        submitBtn.disabled = false;
-        contactForm.reset();
-      }, 2500);
-    }, 1500);
-  });
-
   // ---- 平滑滚动 ----
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
