@@ -41,7 +41,7 @@ const projectData = {
     imageDir: 'assets/detail/fudao/',
     imageExt: 'png',
     imageCount: 18,
-    videoPath: 'D:/大三下半学期/实习作品集/作品/茯道金花/6月11日.mp4'
+    videoPath: 'assets/video/fudao.mp4'
   },
 
   uiux: {
@@ -161,7 +161,7 @@ const projectData = {
     imageDir: 'assets/detail/loujian/',
     imageExt: 'png',
     imageCount: 16,
-    videoPath: 'D:/大三下半学期/实习作品集/作品/耧见文明/微信视频2026-05-30_200355_070.mp4'
+    videoPath: 'assets/video/loujian.mp4'
   },
 
   mengxiang: {
