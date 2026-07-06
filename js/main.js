@@ -57,7 +57,7 @@ const projectData = {
         title: '背景',
         subtitle: 'PROJECT BACKGROUND',
         text: '大学学习场景中存在一个普遍痛点：学习往往是孤独的。同学们在同一个教室里听课，却很少有机会找到志同道合的学习伙伴。我想设计一款 App，不仅能管理学习进度，还能帮助学生找到合适的学习伙伴，让学习变得更有陪伴感和动力。',
-        images: ['01.png', '02.png']
+        images: ['00.png', '02.png']
       },
       {
         title: '理念',
@@ -75,7 +75,7 @@ const projectData = {
         title: '成果',
         subtitle: 'DELIVERABLES',
         text: '最终交付了一套包含 56 个完整界面的高保真设计稿，以及配套的交互动效视频。从最初的线框图到高保真原型，经历了多轮迭代和优化。这套作品完整展示了从需求分析到视觉落地的 UI 设计全流程能力。',
-        images: ['11.png', '12.png', '13.png', '14.png', '15.png']
+        images: ['01.png', '11.png', '12.png', '13.png', '14.png', '15.png']
       }
     ],
     imageDir: 'assets/detail/uiux/',
