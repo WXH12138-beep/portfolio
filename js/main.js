@@ -90,7 +90,7 @@ const projectData = {
     category: '文化创意',
     type: '数字艺术 & 动画',
     role: '创意视觉 & 动画',
-    tools: 'Photoshop / After Effects',
+    tools: 'Photoshop / After Effects / Unity',
     team: '个人项目',
     chapters: [
       {
@@ -130,7 +130,7 @@ const projectData = {
     category: '文化创意',
     type: '文化视觉设计',
     role: '视觉设计',
-    tools: 'Illustrator / Photoshop / After Effects',
+    tools: 'Illustrator / Photoshop / After Effects / Unity',
     team: '仇伟森 / 王旭宏 / 范哲明',
     chapters: [
       {
