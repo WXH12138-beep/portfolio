@@ -1,5 +1,5 @@
 /* ============================================
-   个人作品集 — 交互逻辑
+   个人作品集 — 交互逻辑 v2
    ============================================ */
 
 // ---- 项目详情数据 ----
@@ -81,7 +81,7 @@ const projectData = {
     imageDir: 'assets/detail/uiux/',
     imageExt: 'png',
     imageCount: 56,
-    videoPath: 'D:/大三下半学期/实习作品集/作品/界面设计/1月7日.mp4'
+    videoPath: 'assets/video/uiux.mp4'
   },
 
   quehua: {
